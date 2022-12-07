@@ -35,6 +35,12 @@ class GameController {
       this.#quitGame();
       return;
     }
+
+    this.#requestMiniGameInput();
+  }
+
+  #requestMiniGameInput() {
+    InputView.readMiniGameInput((input) => {});
   }
 
   #quitGame() {
