@@ -40,7 +40,12 @@ class GameController {
   }
 
   #requestMiniGameInput() {
-    InputView.readMiniGameInput((input) => {});
+    InputView.readMiniGameInput((input) => {
+      if (!requestErrorHandler(Validation.miniGameInput, input)) {
+        this.#requestMiniGameInput();
+        return;
+      }
+    });
   }
 
   #quitGame() {

@@ -6,6 +6,8 @@ const MINI_GAME_NUM = {
 const GAME_COMMAND = {
   challenge: 'Y',
   quit: 'N',
+  odd: 'O',
+  even: 'E',
 };
 
 module.exports = {
