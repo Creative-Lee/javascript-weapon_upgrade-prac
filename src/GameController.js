@@ -60,6 +60,8 @@ class GameController {
   #miniGamePhase(input) {
     const number = generateMiniGameNumber();
     this.#miniGame.setNumber(number);
+
+    const miniGameResult = this.#miniGame.play(input);
   }
 
   #quitGame() {
