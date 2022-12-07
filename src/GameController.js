@@ -21,7 +21,9 @@ class GameController {
 
   #requestChallengeCommand() {
     InputView.readChallengeCommand((command) => {
-      if (!requestErrorHandler(Validation.challengeCommand, command)) {
+      const isValidCommand = requestErrorHandler(Validation.challengeCommand, command);
+
+      if (!isValidCommand) {
         this.#requestChallengeCommand();
         return;
       }
@@ -41,7 +43,9 @@ class GameController {
 
   #requestMiniGameInput() {
     InputView.readMiniGameInput((input) => {
-      if (!requestErrorHandler(Validation.miniGameInput, input)) {
+      const isValidInput = requestErrorHandler(Validation.miniGameInput, input);
+
+      if (!isValidInput) {
         this.#requestMiniGameInput();
         return;
       }
