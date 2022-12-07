@@ -1,9 +1,5 @@
-const MissionUtils = require("@woowacourse/mission-utils");
-
-const MINI_GAME_NUM = {
-  lowerInclusive: 0,
-  upperInclusive: 9,
-};
+const MissionUtils = require('@woowacourse/mission-utils');
+const { MINI_GAME_NUM } = require('../constants/condition.js');
 
 const generateMiniGameNumber = () => {
   return MissionUtils.Random.pickNumberInRange(

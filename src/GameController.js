@@ -2,6 +2,7 @@ const UpgradeGame = require('./UpgradeGame.js');
 const Validation = require('./Validation.js');
 const { InputView, OutputView } = require('./views');
 const { Console } = require('@woowacourse/mission-utils');
+const { GAME_COMMAND } = require('./constants/condition.js');
 const requestErrorHandler = require('./utils/requestErrorHandler.js');
 
 class GameController {
@@ -30,8 +31,9 @@ class GameController {
   }
 
   #processChallengeCommand(command) {
-    if (command === 'N') {
+    if (command === GAME_COMMAND.quit) {
       this.#quitGame();
+      return;
     }
   }
 
