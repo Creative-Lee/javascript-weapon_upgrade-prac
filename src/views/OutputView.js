@@ -6,6 +6,10 @@ const MSG_TEMPLATE = {
   weaponGrade(weaponGrade) {
     return `\n현재 강화 등급: +${weaponGrade}강`;
   },
+
+  finalResult(weaponGrade) {
+    return `\n최종 강화 결과: +${weaponGrade}강`;
+  },
 };
 
 const OutputView = {
@@ -15,6 +19,10 @@ const OutputView = {
 
   printWeaponGrade(weaponGrade) {
     Console.print(MSG_TEMPLATE.weaponGrade(weaponGrade));
+  },
+
+  printFinalResult(weaponGrade) {
+    Console.print(MSG_TEMPLATE.finalResult(weaponGrade));
   },
 };
 
