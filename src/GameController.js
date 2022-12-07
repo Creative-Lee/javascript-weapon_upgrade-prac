@@ -9,6 +9,7 @@ const generateMiniGameNumber = require('./utils/generateMiniGameNumber.js');
 
 class GameController {
   #upgradeGame;
+  #miniGame;
 
   constructor() {
     this.#upgradeGame = new UpgradeGame();
@@ -62,6 +63,7 @@ class GameController {
     this.#miniGame.setNumber(number);
 
     const miniGameResult = this.#miniGame.play(input);
+    OutputView.printMiniGameResult(miniGameResult);
   }
 
   #quitGame() {
