@@ -1,6 +1,7 @@
 const UpgradeGame = require('./UpgradeGame.js');
 const Validation = require('./Validation.js');
 const { InputView, OutputView } = require('./views');
+const requestErrorHandler = require('./utils/requestErrorHandler.js');
 
 class GameController {
   #upgradeGame;
@@ -18,9 +19,16 @@ class GameController {
 
   #requestChallengeCommand() {
     InputView.readChallengeCommand((command) => {
-      Validation.challengeCommand(command);
+      if (!requestErrorHandler(Validation.challengeCommand, command)) {
+        this.#requestChallengeCommand();
+        return;
+      }
+
+      this.#processChallengeCommand(command);
     });
   }
+
+  #processChallengeCommand(command) {}
 }
 
 module.exports = GameController;
