@@ -71,8 +71,20 @@ class GameController {
   #upgradePhase(miniGameResult) {
     const probability = this.#upgradeGame.getProbability(miniGameResult);
     const isUpgradeable = this.#upgradeGame.isUpgradeable(probability);
-
     OutputView.printUpgradeResult(isUpgradeable, probability);
+
+    this.#processUpgrade(isUpgradeable);
+  }
+
+  #processUpgrade(isUpgradeable) {
+    if (isUpgradeable) {
+      this.#upgradeGame.upgradeWeapon();
+
+      this.start();
+      return;
+    }
+
+    this.#quitGame();
   }
 
   #quitGame() {

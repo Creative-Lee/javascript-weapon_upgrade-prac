@@ -23,6 +23,10 @@ class UpgradeGame {
   isUpgradeable(probability) {
     return isUpgraded(probability);
   }
+
+  upgradeWeapon() {
+    this.#weaponGrade += 1;
+  }
 }
 
 module.exports = UpgradeGame;
