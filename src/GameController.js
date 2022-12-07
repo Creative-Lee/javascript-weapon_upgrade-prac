@@ -1,5 +1,6 @@
 const UpgradeGame = require('./UpgradeGame.js');
-const OutputView = require('./views/OutputView.js');
+
+const { InputView, OutputView } = require('./views');
 
 class GameController {
   #upgradeGame;
@@ -11,6 +12,8 @@ class GameController {
   start() {
     const weaponGrade = this.#upgradeGame.getWeaponGrade();
     OutputView.printWeaponGrade(weaponGrade);
+
+    InputView.readChallengeCommand((command) => {});
   }
 }
 
