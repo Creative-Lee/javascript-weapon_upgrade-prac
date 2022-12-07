@@ -1,15 +1,18 @@
 const UpgradeGame = require('./UpgradeGame.js');
+const MiniGame = require('./MiniGame.js');
 const Validation = require('./Validation.js');
 const { InputView, OutputView } = require('./views');
 const { Console } = require('@woowacourse/mission-utils');
 const { GAME_COMMAND } = require('./constants/condition.js');
 const inputErrorHandler = require('./utils/inputErrorHandler.js');
+const generateMiniGameNumber = require('./utils/generateMiniGameNumber.js');
 
 class GameController {
   #upgradeGame;
 
   constructor() {
     this.#upgradeGame = new UpgradeGame();
+    this.#miniGame = new MiniGame();
   }
 
   start() {
@@ -49,7 +52,14 @@ class GameController {
         this.#requestMiniGameInput();
         return;
       }
+
+      this.#miniGamePhase(input);
     });
+  }
+
+  #miniGamePhase(input) {
+    const number = generateMiniGameNumber();
+    this.#miniGame.setNumber(number);
   }
 
   #quitGame() {
