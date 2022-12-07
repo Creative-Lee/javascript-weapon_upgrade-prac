@@ -1,6 +1,6 @@
 const { Console } = require('@woowacourse/mission-utils');
 
-const requestErrorHandler = (validate, input) => {
+const inputErrorHandler = (validate, input) => {
   try {
     validate(input);
     return true;
@@ -10,4 +10,4 @@ const requestErrorHandler = (validate, input) => {
   }
 };
 
-module.exports = requestErrorHandler;
+module.exports = inputErrorHandler;

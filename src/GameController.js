@@ -3,7 +3,7 @@ const Validation = require('./Validation.js');
 const { InputView, OutputView } = require('./views');
 const { Console } = require('@woowacourse/mission-utils');
 const { GAME_COMMAND } = require('./constants/condition.js');
-const requestErrorHandler = require('./utils/requestErrorHandler.js');
+const inputErrorHandler = require('./utils/inputErrorHandler.js');
 
 class GameController {
   #upgradeGame;
@@ -21,7 +21,7 @@ class GameController {
 
   #requestChallengeCommand() {
     InputView.readChallengeCommand((command) => {
-      const isValidCommand = requestErrorHandler(Validation.challengeCommand, command);
+      const isValidCommand = inputErrorHandler(Validation.challengeCommand, command);
 
       if (!isValidCommand) {
         this.#requestChallengeCommand();
@@ -43,7 +43,7 @@ class GameController {
 
   #requestMiniGameInput() {
     InputView.readMiniGameInput((input) => {
-      const isValidInput = requestErrorHandler(Validation.miniGameInput, input);
+      const isValidInput = inputErrorHandler(Validation.miniGameInput, input);
 
       if (!isValidInput) {
         this.#requestMiniGameInput();
