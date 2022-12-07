@@ -64,6 +64,12 @@ class GameController {
 
     const miniGameResult = this.#miniGame.play(input);
     OutputView.printMiniGameResult(miniGameResult);
+
+    this.#upgradePhase(miniGameResult);
+  }
+
+  #upgradePhase(miniGameResult) {
+    this.#upgradeGame.getProbability(miniGameResult);
   }
 
   #quitGame() {
