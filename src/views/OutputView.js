@@ -23,6 +23,12 @@ const MSG_TEMPLATE = {
       `${bonusProbabilityText}`
     );
   },
+
+  upgradeResult(isUpgradeable, probability) {
+    const isUpgradeableText = isUpgradeable ? '성공!' : '실패!';
+
+    return `강화 ${isUpgradeableText} (강화 확률 ${probability}%)`;
+  },
 };
 
 const OutputView = {
@@ -40,6 +46,10 @@ const OutputView = {
 
   printMiniGameResult(result) {
     Console.print(MSG_TEMPLATE.miniGameResult(result));
+  },
+
+  printUpgradeResult(isUpgradeable, probability) {
+    Console.print(MSG_TEMPLATE.upgradeResult(isUpgradeable, probability));
   },
 };
 

@@ -20,7 +20,7 @@ class UpgradeGame {
     return probability > 100 ? 100 : probability;
   }
 
-  isUpgraded(probability) {
+  isUpgradeable(probability) {
     return isUpgraded(probability);
   }
 }
