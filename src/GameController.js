@@ -1,5 +1,5 @@
 const UpgradeGame = require('./UpgradeGame.js');
-
+const Validation = require('./Validation.js');
 const { InputView, OutputView } = require('./views');
 
 class GameController {
@@ -13,7 +13,13 @@ class GameController {
     const weaponGrade = this.#upgradeGame.getWeaponGrade();
     OutputView.printWeaponGrade(weaponGrade);
 
-    InputView.readChallengeCommand((command) => {});
+    this.#requestChallengeCommand();
+  }
+
+  #requestChallengeCommand() {
+    InputView.readChallengeCommand((command) => {
+      Validation.challengeCommand(command);
+    });
   }
 }
 
