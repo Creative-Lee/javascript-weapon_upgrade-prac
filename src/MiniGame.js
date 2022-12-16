@@ -30,11 +30,7 @@ class MiniGame {
     const isMatchedOddCommand = isOddCommand && this.#isOddNumber();
     const isMatchedEvenCommand = !isOddCommand && !this.#isOddNumber();
 
-    if (isMatchedOddCommand || isMatchedEvenCommand) {
-      return true;
-    }
-
-    return false;
+    return isMatchedOddCommand || isMatchedEvenCommand;
   }
 
   #isOddNumber() {
